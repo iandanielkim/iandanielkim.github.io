@@ -9,8 +9,6 @@ sidebar:
 mathjax: true
 ---
 
-<h2>English</h2>
-
 <h3>Overview</h3>
 <p>
 This paper proposes <b>FedMerge</b>, a federated learning algorithm designed to improve robustness under highly heterogeneous (non-IID) client data distributions.
