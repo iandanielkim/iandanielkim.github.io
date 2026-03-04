@@ -7,7 +7,7 @@ sidebar:
 ---
 
 # **[Student Full Name]**
-![profile](/assets/img/profile.jpg){: width="180" .align-left}
+![profile](/assets/img/profile_iandanielkim.jpg){: width="180" .align-left}
 Grade 11 Student  
 **Seoul International School (SIS)**, Seongnam, South Korea  
 GPA: **98 / 100**  
