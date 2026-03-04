@@ -1,0 +1,59 @@
+title: "Jayden Jung"
+description: "Brea Olinda High School | AI-driven Economy, Game Theory"
+url: "https://jaydenjung-bohs09.github.io"
+
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin: default
+locale: "en-US"
+
+plugins:
+  - jekyll-include-cache
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+
+# === Collections (keep simple; subpages only) ===
+# === Collections (글이 쌓이는 구조) ===
+collections:
+  research:
+    output: true
+    permalink: /research/:title/
+  projects:
+    output: true
+    permalink: /activities/:title/
+
+
+# === Sidebar Navigation ===
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      sidebar:
+        nav: "main"
+  - scope:
+      path: ""
+      type: research
+    values:
+      layout: single
+      sidebar:
+        nav: "main"
+  - scope:
+      path: ""
+      type: activities
+    values:
+      layout: single
+      sidebar:
+        nav: "main"
+
+author:
+  name: "Ian Daniel Kim"
+  avatar: "/assets/img/profile_iandanielkim.jpg"
+  bio: "Optimization for AI, Federated Learning"
+  location: "Seoul, KR"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/iandanielkim"
