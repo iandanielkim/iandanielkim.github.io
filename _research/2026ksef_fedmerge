@@ -1,0 +1,161 @@
+---
+title: "Federated Learning Algorithm Using Merge-Inspired Hierarchical Clustering for Non-IID Data"
+excerpt: "FedMerge: similarity-aware hierarchical clustering for robust federated learning under severe non-IID distributions."
+date: 2026-01-24
+layout: single
+categories: research
+sidebar:
+  nav: "main"
+mathjax: true
+---
+
+<h2>English</h2>
+
+<h3>Overview</h3>
+<p>
+This paper proposes <b>FedMerge</b>, a federated learning algorithm designed to improve robustness under highly heterogeneous (non-IID) client data distributions.
+Instead of treating all client updates equally, FedMerge applies a <b>merge-inspired hierarchical clustering strategy</b> to group similar clients before global aggregation.
+</p>
+
+<p>
+This work was submitted to the <b>2025 Korea Science and Engineering Fair (KSEF)</b> as an independent research project.
+</p>
+
+<hr>
+
+<h3>Methodology</h3>
+
+<p>
+FedMerge consists of four major components:
+(1) L2 normalization of client weights,
+(2) similarity measurement via Euclidean distance,
+(3) merge-sort inspired hierarchical clustering,
+and (4) distance–stage aware dynamic weighting.
+</p>
+
+<h4>Weight Normalization</h4>
+
+$$
+\omega_i' = \frac{\omega_i}{\|\omega_i\|_2}
+$$
+
+<p>
+Each client update is normalized to remove magnitude bias caused by heterogeneous data distributions.
+</p>
+
+<h4>Similarity Measurement</h4>
+
+$$
+d(i,j) = \|\omega_i' - \omega_j'\|_2
+$$
+
+<p>
+Pairwise Euclidean distance is used to quantify similarity between client updates.
+</p>
+
+<h4>Dynamic Weight Assignment</h4>
+
+$$
+\alpha = e^{-\lambda d} \cdot \gamma^s
+$$
+
+<p>
+Where:
+<ul>
+<li><b>d</b> = merge distance between clusters</li>
+<li><b>s</b> = merge stage (earlier merges receive higher influence)</li>
+<li><b>\(\lambda, \gamma\)</b> = hyperparameters controlling distance and stage sensitivity</li>
+</ul>
+</p>
+
+<p>
+Clusters that merge earlier and have smaller distances contribute more strongly to the global update.
+</p>
+
+<h4>Global Aggregation</h4>
+
+$$
+\theta_{global} = \sum_k \alpha_k \cdot \theta_k
+$$
+
+<p>
+Cluster-aware weighting reduces client drift and stabilizes convergence.
+</p>
+
+<hr>
+
+<h3>Experimental Setup</h3>
+
+<ul>
+<li><b>Environment:</b> Google Colab Pro (NVIDIA A100 / High-performance CPU)</li>
+<li><b>Framework:</b> PyTorch 2.x, NumPy, SciPy, scikit-learn</li>
+<li><b>Datasets:</b> CIFAR-10, CIFAR-100, FEMNIST</li>
+<li><b>Clients:</b> 30–100 depending on dataset</li>
+<li><b>Baselines:</b> FedAvg, FedProx, SCAFFOLD</li>
+<li><b>Metrics:</b> Test Accuracy, Convergence Stability</li>
+</ul>
+
+<hr>
+
+<h3>Results</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th>Best Baseline</th>
+      <th>Baseline Accuracy</th>
+      <th><b>FedMerge</b></th>
+      <th>Improvement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CIFAR-10</td>
+      <td>SCAFFOLD</td>
+      <td>73.8%</td>
+      <td><b>77.1%</b></td>
+      <td>+3.3%</td>
+    </tr>
+    <tr>
+      <td>CIFAR-100</td>
+      <td>SCAFFOLD</td>
+      <td>38.2%</td>
+      <td><b>46.5%</b></td>
+      <td>+8.3%</td>
+    </tr>
+    <tr>
+      <td>FEMNIST</td>
+      <td>SCAFFOLD</td>
+      <td>83.6%</td>
+      <td><b>87.4%</b></td>
+      <td>+3.8%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+FedMerge demonstrated especially strong improvements under severe non-IID conditions, 
+with the largest gain (+8.3%) observed on CIFAR-100.
+Convergence variance was reduced by up to 40% compared to FedAvg, 
+leading to smoother and more stable training dynamics.
+</p>
+
+<hr>
+
+<h3>Conclusion</h3>
+
+<p>
+FedMerge introduces a similarity-aware hierarchical clustering mechanism into federated aggregation.
+By explicitly modeling client similarity and incorporating merge-stage information,
+the algorithm mitigates client drift and stabilizes training under heterogeneous data distributions.
+</p>
+
+<p>
+The results suggest that incorporating structural similarity among clients
+is an effective strategy for addressing the non-IID problem in federated learning.
+</p>
+
+<hr>
+
+<p><i>Research project submitted to the 2025 Korea Science and Engineering Fair International and get a bronze award.</i></p>
