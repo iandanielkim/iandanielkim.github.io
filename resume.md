@@ -135,4 +135,4 @@ Established cross-school initiative uniting students from 10+ international scho
 
 ## **LINKS**
 
-- 🔗 GitHub: https://github.com/[your-id]  
+- 🔗 GitHub: https://github.com/iandanielkim
