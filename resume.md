@@ -1,10 +1,9 @@
-
 ---
 layout: single
 title: "Resume"
 permalink: /resume/
-author_profile: true
-toc: false
+sidebar:
+  nav: "main"
 ---
 
 # Resume
