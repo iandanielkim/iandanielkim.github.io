@@ -6,7 +6,7 @@ sidebar:
   nav: "main"
 ---
 
-# **[Student Full Name]**
+# **Ian Daniel Kim**
 ![profile](/assets/img/profile_iandanielkim.jpg){: width="180" .align-left}
 Grade 11 Student  
 **Seoul International School (SIS)**, Seongnam, South Korea  
